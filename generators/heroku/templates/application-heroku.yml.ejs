@@ -39,6 +39,17 @@ eureka:
         service-url:
             defaultZone: ${JHIPSTER_REGISTRY_URL}/eureka/
 
+<%_ if (cacheProvider === 'memcached') { _%>
+memcached:
+    cache:
+        servers: ${MEMCACHIER_SERVERS}
+        username: ${MEMCACHIER_USERNAME}
+        password: ${MEMCACHIER_PASSWORD}
+        mode: static
+        expiration: 86400
+        protocol: binary
+<%_ } _%>
+
 spring:
 <%_ if (prodDatabaseType === 'postgresql' || prodDatabaseType === 'mysql' || prodDatabaseType === 'mariadb') { _%>
     datasource:

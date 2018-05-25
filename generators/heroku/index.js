@@ -326,6 +326,10 @@ module.exports = class extends BaseGenerator {
                     exec(`heroku addons:create searchbox:starter --as SEARCHBOX --app ${this.herokuAppName}`, addonCreateCallback.bind(this, 'Elasticsearch'));
                 }
 
+                if (this.cacheProvider === 'memcached') {
+                    exec(`heroku addons:create memcachier:dev --as MEMCACHIER --app ${this.herokuAppName}`, addonCreateCallback.bind(this, 'Memcached'));
+                }
+
                 let dbAddOn = '';
                 if (this.prodDatabaseType === 'postgresql') {
                     dbAddOn = 'heroku-postgresql --as DATABASE';
