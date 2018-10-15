@@ -221,7 +221,7 @@ module.exports = class extends BaseGenerator {
             installHerokuDeployPlugin() {
                 if (this.abort) return;
                 const done = this.async();
-                const cliPlugin = 'heroku-cli-deploy';
+                const cliPlugin = 'java';
 
                 exec('heroku plugins', (err, stdout) => {
                     if (_.includes(stdout, cliPlugin)) {

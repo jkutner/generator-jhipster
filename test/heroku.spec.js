@@ -21,7 +21,7 @@ describe('JHipster Heroku Sub Generator', () => {
     before(() => {
         stub = sinon.stub(ChildProcess, 'exec');
         stub.withArgs('heroku --version').yields(false);
-        stub.withArgs('heroku plugins').yields(false, 'heroku-cli-deploy');
+        stub.withArgs('heroku plugins').yields(false, 'java');
         stub.withArgs('git init').yields([false, '', '']);
     });
 
